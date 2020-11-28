@@ -1,0 +1,106 @@
+"""
+
+		Установка:
+			- Использовать pip: pip install flask>=0.9.0
+			- Менеджер пакетов: apt get, yum, dpkg, zypper
+			- Установка из кода:  Скачать код, исзвлечь zip, запустить python install filename.py (в каталоге с файлом)
+
+
+		Среды разработки:
+			IDLE - стандартная
+			PyCharm - (http://www.jetbrains.com/pycham/)
+			IPython - платформа для публикации приложений + IDE
+
+		Контроллеры кода 
+			Предназначен для проверки на наличие ошбок в коде и несоответсвие стилю (нет комментариев, название переменных и т.д.)
+			- pylint
+			- pyflakes
+			- PEP-8
+
+		Тестовые программы
+			Даже маленькое изменение одной функции может положить всю программу.
+				- unittest (стандартный)
+				- doctest	 (http://bit.ly/py-doctest)
+				- nose     (https://nose.readthedocs.org/en/latest)
+				- tox
+				- py.test
+
+		Системы контроля версий:
+			builtbot - (http://buildbot.net/)
+			jenkins  - (http://jenkins-ci.org/)
+			travis-ci- (http://travis-ci.com/)
+
+		Отладчики
+			Помогают отслеживать последовательость выполнения программы, 
+			чтобы посмотреть что как происходит и обнаружить сбой.
+				- pdb
+
+		Записываем в журнал сообщение об ошибках
+			- logging (стандартный модуль) имеет уровни приоритета: (debug, info, warn, error, critical)
+						+ Установть уровень по умолчанию: logging.basicConfig(level=logging.DEBUG)
+						+ Направить журналироване в файл: logging.basicConfig(level='DEBUG', filename='blue_ox.log')
+						+ Задать имя объекта: logging.getLogger('bunyan')
+						
+		Оптимизируем код:
+			Методы измерения времени:
+				- time - t=time() [код] dt=time()-t
+				- timeit - специальный модуль для измерения времени выполнения кода.
+					timeit1.py:
+						from timeit import timeit
+						print(timeit('num = 5; num *= 2', number=1, repeat=3))
+
+			Алгориты и структуры данных:
+				Обычно включения списка быстрее, чем добавление через ф-цию append():
+				[code]
+							from timeit import timeit
+
+							def make_list_1():
+							    result = []
+							    for value in range(1000):
+							        result.append(value)
+							    return result
+
+							def make_list_2():
+							    result = [value for value in range(1000)]
+							    return result
+
+							print('make_list_1 takes', timeit(make_list_1, number=1000), 'seconds')
+							print('make_list_2 takes', timeit(make_list_2, number=1000), 'seconds')
+				[code]
+
+
+			Cython, NumPy и расширения C (повышение скорости):
+				- Cython (http://cython.org/) - Гибрид Python и C (Преобразует Python в скомпилированный код языка C).
+				- NumPy - математическая иблиотека Python (Написанная на C).
+				- Можно писать расширения на C самому, чтобы код работал бысрее.
+
+			PyPy 
+				Язык Python не компилируется в машинный код, он преобразуется в промежуточный язык (байт-код), который затем интрпретирует виртуальная машина.
+				PyPy (http://pypy.org/) - новый интерпертатор Python, который исп приемы, ускоряющие язык Java
+				
+
+			Управление исходным кодом
+				Когда код разрастается, то необхоим инструмет,который будет им управлять,
+				ситуация усугубляется, когда работаешь не в одиночку(волк), а командой. 
+				 	Решение:
+				 		- Mercurial (http:://mercurial.selenic.com/) - простой менеджер. (напсиан на Python)
+				 				+bitbucket (https://bitbucket.org/) - беспл/коммерческий хостинг
+				 		- Git (http://git-scm.com)
+				 				+github (http://github.com/) - хостинг
+
+
+ 		Дополнительная литература:
+ 			Книги:
+ 			  - Head First Python
+	 			- Python  Essential Reference
+	 			- Python Cookbook
+	 			- Python Application Programming
+	 			- Python for Data Analysis: Data Wrangling with Pandas, NumPy and IPython
+	 			- Python in Practice: Create better programs Using Concurency, Libraries and Patterns
+			
+			Сайты:
+				- Learn Python the Hard Way (http://learnpythonthehardway.org/book/)
+				- Dive Into Python 3 (http://www.diveintopython3.net/)
+				- Mouse Vs. Python (http://www.blog.pythonlibrary.org/)
+
+"""
